@@ -1,0 +1,21 @@
+# MCYF — .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded user content — keep folders, ignore contents
+public/assets/uploads/logos/*
+public/assets/uploads/gallery/*
+public/assets/uploads/avatars/*
+!public/assets/uploads/logos/.gitkeep
+!public/assets/uploads/gallery/.gitkeep
+!public/assets/uploads/avatars/.gitkeep
+
+# Local environment overrides (if you ever add one)
+.env
+config/database.local.php
+
+# IDE
+.vscode/
+.idea/
