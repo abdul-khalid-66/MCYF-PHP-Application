@@ -15,12 +15,27 @@
 // ── Constants ─────────────────────────────────────────────────────────────────
 
 define('ROOT_PATH', __DIR__);                    // /path/to/mcyf-php
-define('BASE_URL',  rtrim(
+
+/**
+ * BASE_URL must always point to the /public folder itself — never to a
+ * sub-folder like /public/auth or /public/admin. dirname(SCRIPT_NAME) broke
+ * on every nested page (returned .../public/auth instead of .../public), so
+ * instead we locate the "/public" segment in the current script path and
+ * cut there. Works no matter how deep the page is nested.
+ */
+$__scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+$__publicPos  = strpos($__scriptName, '/public');
+$__basePath   = $__publicPos !== false
+    ? substr($__scriptName, 0, $__publicPos + strlen('/public'))
+    : rtrim(dirname($__scriptName), '/\\'); // fallback
+
+define('BASE_URL', rtrim(
     (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http')
     . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost')
-    . rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\')   // auto-detects sub-folder
+    . $__basePath
     , '/'
 ));
+unset($__scriptName, $__publicPos, $__basePath);
 
 // ── Autoload helpers ──────────────────────────────────────────────────────────
 
