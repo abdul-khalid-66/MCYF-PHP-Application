@@ -316,4 +316,11 @@ return [
     'profile_edit_heading'  => 'پروفائل میں ترمیم کریں',
     'profile_edit_subtitle' => 'اپنی ذاتی معلومات اپ ڈیٹ کریں',
     'profile_updated'       => 'آپ کی پروفائل کامیابی سے اپ ڈیٹ ہو گئی۔',
+
+    // ── Phase 3: Announcements / Notifications / Events / Committees ────────
+    'notification_mark_all_read' => 'تمام کو پڑھا ہوا نشان زد کریں',
+    'label_photo'                => 'تصویر',
+    'label_upload'               => 'اپ لوڈ کریں',
+    'committee_select_members'   => 'ممبران منتخب کریں',
+    'committee_no_members'       => 'کوئی ممبر شامل نہیں',
 ];

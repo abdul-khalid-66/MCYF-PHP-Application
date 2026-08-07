@@ -44,6 +44,10 @@ require_once ROOT_PATH . '/app/Helpers/Auth.php';   // starts session
 require_once ROOT_PATH . '/app/Helpers/Lang.php';   // loads language + settings
 require_once ROOT_PATH . '/app/Helpers/Positions.php';
 require_once ROOT_PATH . '/app/Models/Member.php';
+require_once ROOT_PATH . '/app/Models/Announcement.php';
+require_once ROOT_PATH . '/app/Models/NotificationItem.php';
+require_once ROOT_PATH . '/app/Models/EventItem.php';
+require_once ROOT_PATH . '/app/Models/Committee.php';
 
 // ── Utility functions ─────────────────────────────────────────────────────────
 

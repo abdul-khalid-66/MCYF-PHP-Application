@@ -292,4 +292,11 @@ return [
     'profile_edit_heading'  => 'Profile mein Tarmeem Karein',
     'profile_edit_subtitle' => 'Apni zaati malumat update karein',
     'profile_updated'       => 'Aapki profile kamyabi se update hogayi.',
+
+    // ── Phase 3: Announcements / Notifications / Events / Committees ────────
+    'notification_mark_all_read' => 'Tamam ko Parha Huwa Nishan Zad Karein',
+    'label_photo'                => 'Tasweer',
+    'label_upload'               => 'Upload Karein',
+    'committee_select_members'   => 'Membran Muntakhib Karein',
+    'committee_no_members'       => 'Koi member shamil nahi',
 ];

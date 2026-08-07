@@ -290,4 +290,11 @@ return [
     'profile_edit_heading'  => 'Edit Profile',
     'profile_edit_subtitle' => 'Update your personal information',
     'profile_updated'       => 'Your profile has been updated successfully.',
+
+    // ── Phase 3: Announcements / Notifications / Events / Committees ────────
+    'notification_mark_all_read' => 'Mark All as Read',
+    'label_photo'                => 'Photo',
+    'label_upload'               => 'Upload',
+    'committee_select_members'   => 'Select Members',
+    'committee_no_members'       => 'No members added',
 ];

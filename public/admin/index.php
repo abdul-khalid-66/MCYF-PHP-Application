@@ -59,22 +59,25 @@ $content    = function () use ($stats) { ?>
 <div class="row g-3">
 
   <?php
+  // Path is relative to BASE_URL directly — some pages live at the top level
+  // (public pages with an inline admin-management section, e.g. members.php),
+  // others (settings, future users.php) are admin-only and live under /admin/.
   $cards = [
-    ['members.php', 'bi-people', t_raw('admin_members'), 'members_manage'],
-    ['announcements.php', 'bi-megaphone', t_raw('admin_announcements'), 'announcements_manage'],
-    ['notifications.php', 'bi-bell', t_raw('admin_notifications'), 'admin'],
-    ['events.php', 'bi-calendar-event', t_raw('admin_events'), 'events_manage'],
-    ['committees.php', 'bi-diagram-3', t_raw('admin_committees'), 'committees_manage'],
-    ['gallery.php', 'bi-images', t_raw('admin_gallery'), 'gallery_manage'],
-    ['emergency.php', 'bi-heart-pulse', t_raw('admin_emergency'), 'emergency_manage'],
-    ['users.php', 'bi-people-fill', t_raw('admin_users_roles'), 'user_management'],
-    ['settings.php', 'bi-gear', t_raw('admin_platform_settings'), 'admin'],
+    ['members.php',        'bi-people',          t_raw('admin_members'),           'members_manage'],
+    ['announcements.php',  'bi-megaphone',       t_raw('admin_announcements'),     'announcements_manage'],
+    ['notifications.php',  'bi-bell',            t_raw('admin_notifications'),     'admin'],
+    ['events.php',         'bi-calendar-event',  t_raw('admin_events'),            'events_manage'],
+    ['committees.php',     'bi-diagram-3',       t_raw('admin_committees'),        'committees_manage'],
+    ['gallery.php',        'bi-images',          t_raw('admin_gallery'),           'gallery_manage'],
+    ['emergency.php',      'bi-heart-pulse',     t_raw('admin_emergency'),         'emergency_manage'],
+    ['admin/users.php',    'bi-people-fill',     t_raw('admin_users_roles'),       'user_management'],
+    ['admin/settings.php', 'bi-gear',            t_raw('admin_platform_settings'), 'admin'],
   ];
   foreach ($cards as [$path, $icon, $label, $perm]):
     if (!hasPermission($perm)) continue;
   ?>
   <div class="col-sm-6 col-lg-4">
-    <a href="<?= BASE_URL ?>/admin/<?= $path ?>" class="text-decoration-none">
+    <a href="<?= BASE_URL ?>/<?= $path ?>" class="text-decoration-none">
       <div class="card-forum p-4 d-flex align-items-center gap-3">
         <i class="bi <?= $icon ?> text-forum-gold fs-3"></i>
         <h6 class="mb-0"><?= e($label) ?></h6>
