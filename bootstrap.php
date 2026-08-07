@@ -80,7 +80,7 @@ function e(string $value): string
 }
 
 /** Format a date string for display */
-function formatDate(string $date, string $format = 'd M Y'): string
+function formatDate(?string $date, string $format = 'd M Y'): string
 {
     if (!$date) return '—';
     try {

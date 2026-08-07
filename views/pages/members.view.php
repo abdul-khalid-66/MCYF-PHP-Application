@@ -113,10 +113,10 @@
             </form>
           <?php endif; ?>
 
-          <button class="btn btn-sm btn-outline-forum"
+          <button class="btn btn-sm btn-outline-forum js-edit-member"
                   title="<?= t('btn_edit') ?>"
                   data-bs-toggle="modal" data-bs-target="#memberModal"
-                  onclick='openMemberModal(<?= json_encode($m, JSON_UNESCAPED_UNICODE) ?>)'>
+                  data-item='<?= htmlspecialchars(json_encode($m, JSON_UNESCAPED_UNICODE), ENT_QUOTES, "UTF-8") ?>'>
             <i class="bi bi-pencil"></i>
           </button>
 
@@ -259,6 +259,14 @@ document.getElementById('memberSearch')?.addEventListener('input', function () {
   document.querySelectorAll('.member-directory-card').forEach(card => {
     card.style.display = card.dataset.search.includes(q) ? '' : 'none';
   });
+});
+
+// Edit button — read JSON safely from data-item (avoids breaking on quotes in names/addresses)
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.js-edit-member');
+  if (!btn) return;
+  const member = JSON.parse(btn.dataset.item);
+  openMemberModal(member);
 });
 
 function openMemberModal(member) {

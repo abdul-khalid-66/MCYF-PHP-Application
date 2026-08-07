@@ -35,9 +35,9 @@
       </div>
       <?php if ($canManage): ?>
       <div class="text-nowrap">
-        <button class="btn btn-sm btn-outline-forum me-1"
+        <button class="btn btn-sm btn-outline-forum me-1 js-edit-ann"
                 data-bs-toggle="modal" data-bs-target="#announcementModal"
-                onclick='openAnnouncementModal(<?= json_encode($a, JSON_UNESCAPED_UNICODE) ?>)'>
+                data-item='<?= htmlspecialchars(json_encode($a, JSON_UNESCAPED_UNICODE), ENT_QUOTES, "UTF-8") ?>'>
           <i class="bi bi-pencil"></i>
         </button>
         <form method="POST" action="" class="d-inline" data-confirm="<?= t('msg_confirm_delete') ?>">
@@ -107,6 +107,13 @@ $jsLabels = json_encode([
 $extraJs = <<<JS
 <script>
 const MCYF_ANN_LABELS = {$jsLabels};
+
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.js-edit-ann');
+  if (!btn) return;
+  openAnnouncementModal(JSON.parse(btn.dataset.item));
+});
+
 function openAnnouncementModal(a) {
   const form = document.querySelector('#announcementModal form');
   form.reset();

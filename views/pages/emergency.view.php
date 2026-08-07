@@ -32,9 +32,9 @@
       <p class="small text-muted mb-2"><?= e($s['description']) ?></p>
       <?php if ($canManage): ?>
       <div class="mt-auto">
-        <button class="btn btn-sm btn-outline-forum me-1"
+        <button class="btn btn-sm btn-outline-forum me-1 js-edit-emergency"
                 data-bs-toggle="modal" data-bs-target="#emergencyModal"
-                onclick='openEmergencyModal(<?= json_encode($s, JSON_UNESCAPED_UNICODE) ?>)'>
+                data-item='<?= htmlspecialchars(json_encode($s, JSON_UNESCAPED_UNICODE), ENT_QUOTES, "UTF-8") ?>'>
           <i class="bi bi-pencil"></i>
         </button>
         <form method="POST" action="" class="d-inline" data-confirm="<?= t('msg_confirm_delete') ?>">
@@ -112,6 +112,13 @@ $jsLabels = json_encode([
 $extraJs = <<<JS
 <script>
 const MCYF_ES_LABELS = {$jsLabels};
+
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.js-edit-emergency');
+  if (!btn) return;
+  openEmergencyModal(JSON.parse(btn.dataset.item));
+});
+
 
 function openEmergencyModal(s) {
   const form = document.querySelector('#emergencyModal form');

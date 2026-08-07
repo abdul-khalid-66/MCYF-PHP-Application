@@ -53,8 +53,8 @@
         </a>
         <?php if ($canManage): ?>
         <div class="gallery-admin-actions">
-          <button class="btn btn-sm btn-light" title="<?= t('btn_edit') ?>"
-                  onclick='openImageModal(<?= json_encode($img, JSON_UNESCAPED_UNICODE) ?>)'
+          <button class="btn btn-sm btn-light js-edit-image" title="<?= t('btn_edit') ?>"
+                  data-item='<?= htmlspecialchars(json_encode($img, JSON_UNESCAPED_UNICODE), ENT_QUOTES, "UTF-8") ?>'
                   data-bs-toggle="modal" data-bs-target="#imageModal">
             <i class="bi bi-pencil"></i>
           </button>
@@ -228,6 +228,13 @@ $jsLabels = json_encode([
 $extraJs = <<<JS
 <script>
 const MCYF_GAL_LABELS = {$jsLabels};
+
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.js-edit-image');
+  if (!btn) return;
+  openImageModal(JSON.parse(btn.dataset.item));
+});
+
 
 // Category filter (client-side, both tabs)
 document.getElementById('categoryFilter')?.addEventListener('change', function () {
