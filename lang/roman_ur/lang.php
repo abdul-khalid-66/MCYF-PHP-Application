@@ -297,6 +297,38 @@ return [
     'notification_mark_all_read' => 'Tamam ko Parha Huwa Nishan Zad Karein',
     'label_photo'                => 'Tasweer',
     'label_upload'               => 'Upload Karein',
+    'label_or'                   => 'Ya',
     'committee_select_members'   => 'Membran Muntakhib Karein',
     'committee_no_members'       => 'Koi member shamil nahi',
+
+    // ── Phase 4: Gallery ──────────────────────────────────────────────────────
+    'gallery_all_categories'   => 'Tamam Categories',
+    'gallery_add_image'        => 'Nayi Tasweer',
+    'gallery_add_video'        => 'Nayi Video',
+    'gallery_no_images'        => 'Is category mein koi tasweer nahi',
+    'gallery_no_videos'        => 'Is category mein koi video nahi',
+    'gallery_or_url'           => 'Ya Tasweer ka URL',
+    'gallery_youtube_tab'      => 'YouTube Embed',
+    'gallery_upload_tab'       => 'Video Upload Karein',
+    'gallery_youtube_label'    => 'YouTube Link ya Video ID',
+    'gallery_video_file_label' => 'Video File Upload Karein',
+    'gallery_category_placeholder' => 'Misal ke tor par: Taqribaat, Falahi Kaam',
+
+    // ── Phase 4: Emergency Services ──────────────────────────────────────────
+    'emergency_icon_hospital'   => 'Hospital',
+    'emergency_icon_burial'     => 'Tadfeen',
+    'emergency_icon_disaster'   => 'Aafaat mein Imdad',
+    'emergency_icon_blood'      => 'Khoon ka Atiya',
+    'emergency_icon_financial'  => 'Maali Imdad',
+    'emergency_icon_transport'  => 'Naqal o Hamal',
+    'emergency_icon_safety'     => 'Hifazat',
+    'emergency_icon_medical'    => 'Tibbi Imdad',
+
+    // ── Phase 4: Contact ──────────────────────────────────────────────────────
+    'contact_subject'    => 'Mauzo',
+    'contact_email_or_mobile' => 'Email / Mobile',
+    'contact_map_heading'=> 'Naqsha',
+
+    // ── Phase 4: About ────────────────────────────────────────────────────────
+    'about_page_subtitle' => 'Forum ka taaruf, wazion, mission, maqasid, charter aur aain',
 ];

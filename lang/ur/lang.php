@@ -321,6 +321,38 @@ return [
     'notification_mark_all_read' => 'تمام کو پڑھا ہوا نشان زد کریں',
     'label_photo'                => 'تصویر',
     'label_upload'               => 'اپ لوڈ کریں',
+    'label_or'                   => 'یا',
     'committee_select_members'   => 'ممبران منتخب کریں',
     'committee_no_members'       => 'کوئی ممبر شامل نہیں',
+
+    // ── Phase 4: Gallery ──────────────────────────────────────────────────────
+    'gallery_all_categories'   => 'تمام کیٹیگریز',
+    'gallery_add_image'        => 'نئی تصویر',
+    'gallery_add_video'        => 'نئی ویڈیو',
+    'gallery_no_images'        => 'اس کیٹیگری میں کوئی تصویر نہیں',
+    'gallery_no_videos'        => 'اس کیٹیگری میں کوئی ویڈیو نہیں',
+    'gallery_or_url'           => 'یا تصویر کا URL',
+    'gallery_youtube_tab'      => 'یوٹیوب ایمبیڈ',
+    'gallery_upload_tab'       => 'ویڈیو اپ لوڈ کریں',
+    'gallery_youtube_label'    => 'یوٹیوب لنک یا ویڈیو ID',
+    'gallery_video_file_label' => 'ویڈیو فائل اپ لوڈ کریں',
+    'gallery_category_placeholder' => 'مثلاً تقریبات، فلاحی کام',
+
+    // ── Phase 4: Emergency Services ──────────────────────────────────────────
+    'emergency_icon_hospital'   => 'ہسپتال',
+    'emergency_icon_burial'     => 'تدفین',
+    'emergency_icon_disaster'   => 'آفات',
+    'emergency_icon_blood'      => 'خون کا عطیہ',
+    'emergency_icon_financial'  => 'مالی امداد',
+    'emergency_icon_transport'  => 'نقل و حمل',
+    'emergency_icon_safety'     => 'حفاظت',
+    'emergency_icon_medical'    => 'طبی امداد',
+
+    // ── Phase 4: Contact ──────────────────────────────────────────────────────
+    'contact_subject'    => 'موضوع',
+    'contact_email_or_mobile' => 'ای میل / موبائل',
+    'contact_map_heading'=> 'نقشہ',
+
+    // ── Phase 4: About ────────────────────────────────────────────────────────
+    'about_page_subtitle' => 'فورم کا تعارف، وژن، مشن، مقاصد، چارٹر اور آئین',
 ];

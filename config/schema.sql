@@ -183,4 +183,16 @@ CREATE TABLE IF NOT EXISTS `about_content` (
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- ── Contact Messages (submissions from the public contact form) ──────────────
+CREATE TABLE IF NOT EXISTS `contact_messages` (
+  `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name`        VARCHAR(150) NOT NULL,
+  `contact_info`VARCHAR(200) NOT NULL DEFAULT '',
+  `subject`     VARCHAR(300) NOT NULL DEFAULT '',
+  `message`     TEXT         NOT NULL,
+  `is_read`     TINYINT(1)   NOT NULL DEFAULT 0,
+  `created_at`  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 SET FOREIGN_KEY_CHECKS = 1;

@@ -48,6 +48,9 @@ require_once ROOT_PATH . '/app/Models/Announcement.php';
 require_once ROOT_PATH . '/app/Models/NotificationItem.php';
 require_once ROOT_PATH . '/app/Models/EventItem.php';
 require_once ROOT_PATH . '/app/Models/Committee.php';
+require_once ROOT_PATH . '/app/Models/Gallery.php';
+require_once ROOT_PATH . '/app/Models/EmergencyService.php';
+require_once ROOT_PATH . '/app/Models/ContactMessage.php';
 
 // ── Utility functions ─────────────────────────────────────────────────────────
 
@@ -150,4 +153,53 @@ function memberPhotoUrl(?string $photo): string
         return BASE_URL . '/' . ltrim($photo, '/');
     }
     return 'https://ui-avatars.com/api/?background=145A32&color=C9A227&name=' . urlencode('?');
+}
+
+/**
+ * Handle an uploaded video file (from $_FILES[$fieldName]).
+ * Same pattern as handleImageUpload but validates against video mime types
+ * and the larger MAX_VIDEO_MB limit.
+ */
+function handleVideoUpload(string $fieldName, string $subfolder): ?string
+{
+    if (empty($_FILES[$fieldName]['name']) || $_FILES[$fieldName]['error'] === UPLOAD_ERR_NO_FILE) {
+        return null;
+    }
+    $file = $_FILES[$fieldName];
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        throw new RuntimeException('فائل اپ لوڈ کرنے میں خرابی پیش آئی۔');
+    }
+    if ($file['size'] > MAX_VIDEO_MB * 1024 * 1024) {
+        throw new RuntimeException('ویڈیو کا سائز ' . MAX_VIDEO_MB . ' MB سے کم ہونا چاہیے۔');
+    }
+    if (!in_array($file['type'], ALLOWED_VIDEO_TYPES, true)) {
+        throw new RuntimeException('صرف MP4، WEBM یا OGG ویڈیو فائلیں قابل قبول ہیں۔');
+    }
+
+    $ext      = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)) ?: 'mp4';
+    $filename = bin2hex(random_bytes(12)) . '.' . $ext;
+    $destDir  = ROOT_PATH . '/public/assets/uploads/' . trim($subfolder, '/');
+    if (!is_dir($destDir)) {
+        mkdir($destDir, 0755, true);
+    }
+    $dest = $destDir . '/' . $filename;
+
+    if (!move_uploaded_file($file['tmp_name'], $dest)) {
+        throw new RuntimeException('فائل محفوظ کرنے میں ناکامی۔');
+    }
+    return 'assets/uploads/' . trim($subfolder, '/') . '/' . $filename;
+}
+
+/** Extracts an 11-character YouTube video ID from a URL or raw ID string. Returns null if not found. */
+function extractYoutubeId(string $input): ?string
+{
+    $input = trim($input);
+    if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/', $input, $m)) {
+        return $m[1];
+    }
+    if (preg_match('/^[a-zA-Z0-9_-]{11}$/', $input)) {
+        return $input;
+    }
+    return null;
 }

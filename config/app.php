@@ -39,3 +39,7 @@ define('PER_PAGE', 15);
 // Upload limits
 define('MAX_UPLOAD_MB', 5);
 define('ALLOWED_IMAGE_TYPES', ['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
+
+// Video upload limits (gallery videos)
+define('MAX_VIDEO_MB', 50);
+define('ALLOWED_VIDEO_TYPES', ['video/mp4', 'video/webm', 'video/ogg']);

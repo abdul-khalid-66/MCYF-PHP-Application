@@ -295,6 +295,38 @@ return [
     'notification_mark_all_read' => 'Mark All as Read',
     'label_photo'                => 'Photo',
     'label_upload'               => 'Upload',
+    'label_or'                   => 'OR',
     'committee_select_members'   => 'Select Members',
     'committee_no_members'       => 'No members added',
+
+    // ── Phase 4: Gallery ──────────────────────────────────────────────────────
+    'gallery_all_categories'   => 'All Categories',
+    'gallery_add_image'        => 'New Photo',
+    'gallery_add_video'        => 'New Video',
+    'gallery_no_images'        => 'No photos in this category',
+    'gallery_no_videos'        => 'No videos in this category',
+    'gallery_or_url'           => 'Or Image URL',
+    'gallery_youtube_tab'      => 'YouTube Embed',
+    'gallery_upload_tab'       => 'Upload Video',
+    'gallery_youtube_label'    => 'YouTube Link or Video ID',
+    'gallery_video_file_label' => 'Upload Video File',
+    'gallery_category_placeholder' => 'e.g. Events, Welfare',
+
+    // ── Phase 4: Emergency Services ──────────────────────────────────────────
+    'emergency_icon_hospital'   => 'Hospital',
+    'emergency_icon_burial'     => 'Burial',
+    'emergency_icon_disaster'   => 'Disaster Relief',
+    'emergency_icon_blood'      => 'Blood Donation',
+    'emergency_icon_financial'  => 'Financial Aid',
+    'emergency_icon_transport'  => 'Transport',
+    'emergency_icon_safety'     => 'Safety',
+    'emergency_icon_medical'    => 'Medical Aid',
+
+    // ── Phase 4: Contact ──────────────────────────────────────────────────────
+    'contact_subject'    => 'Subject',
+    'contact_email_or_mobile' => 'Email / Mobile',
+    'contact_map_heading'=> 'Map',
+
+    // ── Phase 4: About ────────────────────────────────────────────────────────
+    'about_page_subtitle' => 'Our introduction, vision, mission, objectives, charter and constitution',
 ];
