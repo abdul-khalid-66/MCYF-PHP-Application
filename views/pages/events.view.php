@@ -123,6 +123,7 @@ function eventThumbUrl(?string $path, string $default): string {
 $jsLabels = json_encode([
     'addTitle'  => t_raw('event_add'),
     'editTitle' => t_raw('event_edit'),
+    'baseUrl'   => BASE_URL,
 ], JSON_UNESCAPED_UNICODE);
 
 $extraJs = <<<JS
@@ -161,7 +162,7 @@ function openEventModal(ev) {
     label.textContent = MCYF_EVENT_LABELS.editTitle;
     if (ev.thumbnail) {
       const preview = document.getElementById('e_photo_preview');
-      preview.src = ev.thumbnail.startsWith('http') ? ev.thumbnail : ('<?= BASE_URL ?>/' + ev.thumbnail);
+      preview.src = ev.thumbnail.startsWith('http') ? ev.thumbnail : (MCYF_EVENT_LABELS.baseUrl + '/' + ev.thumbnail);
       preview.classList.remove('d-none');
     }
   } else {
