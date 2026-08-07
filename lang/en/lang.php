@@ -255,4 +255,39 @@ return [
     'priority_urgent'   => 'Urgent',
     'priority_important'=> 'Important',
     'priority_general'  => 'General',
+
+    // ── Phase 2: Dashboard extra stats ─────────────────────────────────────
+    'stat_announcements'     => 'Announcements',
+    'stat_new_notifications' => 'New Notifications',
+
+    // ── Phase 2: Positions (organizational titles) ──────────────────────────
+    'position_guardian'          => 'Patron',
+    'position_chairman'          => 'Chairman',
+    'position_vice_chairman'     => 'Vice Chairman',
+    'position_gen_secretary'     => 'General Secretary',
+    'position_joint_secretary'   => 'Joint Secretary',
+    'position_finance_secretary' => 'Finance Secretary',
+    'position_info_secretary'    => 'Information Secretary',
+    'position_media_secretary'   => 'Media Secretary',
+    'position_it_secretary'      => 'IT Secretary',
+    'position_exec_member'       => 'Executive Member',
+    'position_volunteer'         => 'Volunteer',
+    'position_member'            => 'Member',
+
+    // ── Phase 2: Members admin ───────────────────────────────────────────────
+    'member_search_placeholder' => 'Search by name, position or district',
+    'member_new_password'       => 'New Password (optional)',
+    'member_password_hint_new'  => 'Leave blank to set a default password (Welcome@123)',
+    'member_password_hint_edit' => 'Leave blank to keep the current password',
+    'member_filter_status'      => 'Filter by Status',
+    'member_photo_url_or_upload'=> 'Upload Photo',
+    'msg_approved'   => 'Member approved.',
+    'msg_rejected'   => 'Application rejected.',
+    'msg_saved'      => 'Saved successfully.',
+    'msg_deleted'    => 'Deleted successfully.',
+
+    // ── Phase 2: Profile edit ────────────────────────────────────────────────
+    'profile_edit_heading'  => 'Edit Profile',
+    'profile_edit_subtitle' => 'Update your personal information',
+    'profile_updated'       => 'Your profile has been updated successfully.',
 ];

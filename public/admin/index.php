@@ -49,7 +49,7 @@ $content    = function () use ($stats) { ?>
   <i class="bi bi-person-exclamation fs-5"></i>
   <span>
     <strong><?= $stats['pending'] ?></strong> درخواست گزار منظوری کے منتظر ہیں —
-    <a href="<?= BASE_URL ?>/admin/users.php?filter=pending" class="alert-link">ابھی دیکھیں</a>
+    <a href="<?= BASE_URL ?>/members.php?status=pending" class="alert-link">ابھی دیکھیں</a>
   </span>
 </div>
 <?php endif; ?>

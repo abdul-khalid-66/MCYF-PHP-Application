@@ -42,6 +42,8 @@ unset($__scriptName, $__publicPos, $__basePath);
 require_once ROOT_PATH . '/app/Helpers/DB.php';
 require_once ROOT_PATH . '/app/Helpers/Auth.php';   // starts session
 require_once ROOT_PATH . '/app/Helpers/Lang.php';   // loads language + settings
+require_once ROOT_PATH . '/app/Helpers/Positions.php';
+require_once ROOT_PATH . '/app/Models/Member.php';
 
 // ── Utility functions ─────────────────────────────────────────────────────────
 
@@ -94,4 +96,54 @@ function flashHtml(string $key): string
   <span>{$msg}</span>
 </div>
 HTML;
+}
+
+/**
+ * Handle an uploaded image file (from $_FILES[$fieldName]).
+ * Saves it under public/assets/uploads/{subfolder}/ with a unique name.
+ * Returns the relative path (e.g. "assets/uploads/avatars/xyz.jpg") on
+ * success, null if no file was uploaded, or throws a RuntimeException
+ * with a user-facing message on validation failure.
+ */
+function handleImageUpload(string $fieldName, string $subfolder): ?string
+{
+    if (empty($_FILES[$fieldName]['name']) || $_FILES[$fieldName]['error'] === UPLOAD_ERR_NO_FILE) {
+        return null;
+    }
+    $file = $_FILES[$fieldName];
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        throw new RuntimeException('فائل اپ لوڈ کرنے میں خرابی پیش آئی۔');
+    }
+    if ($file['size'] > MAX_UPLOAD_MB * 1024 * 1024) {
+        throw new RuntimeException('فائل کا سائز ' . MAX_UPLOAD_MB . ' MB سے کم ہونا چاہیے۔');
+    }
+    if (!in_array($file['type'], ALLOWED_IMAGE_TYPES, true)) {
+        throw new RuntimeException('صرف JPG، PNG، WEBP یا GIF فائلیں قابل قبول ہیں۔');
+    }
+
+    $ext      = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)) ?: 'jpg';
+    $filename = bin2hex(random_bytes(12)) . '.' . $ext;
+    $destDir  = ROOT_PATH . '/public/assets/uploads/' . trim($subfolder, '/');
+    if (!is_dir($destDir)) {
+        mkdir($destDir, 0755, true);
+    }
+    $dest = $destDir . '/' . $filename;
+
+    if (!move_uploaded_file($file['tmp_name'], $dest)) {
+        throw new RuntimeException('فائل محفوظ کرنے میں ناکامی۔');
+    }
+    return 'assets/uploads/' . trim($subfolder, '/') . '/' . $filename;
+}
+
+/** Resolve a member's photo to a full URL, falling back to a placeholder avatar. */
+function memberPhotoUrl(?string $photo): string
+{
+    if ($photo && str_starts_with($photo, 'http')) {
+        return $photo; // seeded demo data uses external URLs
+    }
+    if ($photo && file_exists(ROOT_PATH . '/public/' . $photo)) {
+        return BASE_URL . '/' . ltrim($photo, '/');
+    }
+    return 'https://ui-avatars.com/api/?background=145A32&color=C9A227&name=' . urlencode('?');
 }

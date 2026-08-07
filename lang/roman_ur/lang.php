@@ -257,4 +257,39 @@ return [
     'priority_urgent'   => 'Fori',
     'priority_important'=> 'Aham',
     'priority_general'  => 'Aam',
+
+    // ── Phase 2: Dashboard extra stats ─────────────────────────────────────
+    'stat_announcements'     => 'Aelanaat',
+    'stat_new_notifications' => 'Nayi Itlaaat',
+
+    // ── Phase 2: Positions (organizational titles) ──────────────────────────
+    'position_guardian'          => 'Sarparast',
+    'position_chairman'          => 'Chairman',
+    'position_vice_chairman'     => 'Vice Chairman',
+    'position_gen_secretary'     => 'General Secretary',
+    'position_joint_secretary'   => 'Joint Secretary',
+    'position_finance_secretary' => 'Finance Secretary',
+    'position_info_secretary'    => 'Information Secretary',
+    'position_media_secretary'   => 'Media Secretary',
+    'position_it_secretary'      => 'IT Secretary',
+    'position_exec_member'       => 'Executive Member',
+    'position_volunteer'         => 'Razakar',
+    'position_member'            => 'Member',
+
+    // ── Phase 2: Members admin ───────────────────────────────────────────────
+    'member_search_placeholder' => 'Naam, ohda ya zila se talaash karein',
+    'member_new_password'       => 'Naya Password (Ikhtiyari)',
+    'member_password_hint_new'  => 'Khali chorein tou default password (Welcome@123) set hoga',
+    'member_password_hint_edit' => 'Khali chorein tou maujooda password barqarar rahega',
+    'member_filter_status'      => 'Haiyyat ke mutabiq filter karein',
+    'member_photo_url_or_upload'=> 'Tasweer Upload Karein',
+    'msg_approved'   => 'Member manzoor kar liya gaya.',
+    'msg_rejected'   => 'Darkhwast mustard kar di gayi.',
+    'msg_saved'      => 'Kamyabi se mehfooz ho gaya.',
+    'msg_deleted'    => 'Kamyabi se hazf kar diya gaya.',
+
+    // ── Phase 2: Profile edit ────────────────────────────────────────────────
+    'profile_edit_heading'  => 'Profile mein Tarmeem Karein',
+    'profile_edit_subtitle' => 'Apni zaati malumat update karein',
+    'profile_updated'       => 'Aapki profile kamyabi se update hogayi.',
 ];

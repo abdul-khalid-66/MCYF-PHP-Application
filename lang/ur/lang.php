@@ -281,4 +281,39 @@ return [
     'priority_urgent'   => 'فوری',
     'priority_important'=> 'اہم',
     'priority_general'  => 'عام',
+
+    // ── Phase 2: Dashboard extra stats ─────────────────────────────────────
+    'stat_announcements'     => 'اعلانات',
+    'stat_new_notifications' => 'نئی اطلاعات',
+
+    // ── Phase 2: Positions (organizational titles) ──────────────────────────
+    'position_guardian'          => 'سرپرست',
+    'position_chairman'          => 'چیئرمین',
+    'position_vice_chairman'     => 'وائس چیئرمین',
+    'position_gen_secretary'     => 'جنرل سیکرٹری',
+    'position_joint_secretary'   => 'جوائنٹ سیکرٹری',
+    'position_finance_secretary' => 'فنانس سیکرٹری',
+    'position_info_secretary'    => 'انفارمیشن سیکرٹری',
+    'position_media_secretary'   => 'میڈیا سیکرٹری',
+    'position_it_secretary'      => 'آئی ٹی سیکرٹری',
+    'position_exec_member'       => 'ایگزیکٹو ممبر',
+    'position_volunteer'         => 'رضاکار',
+    'position_member'            => 'ممبر',
+
+    // ── Phase 2: Members admin ───────────────────────────────────────────────
+    'member_search_placeholder' => 'نام، عہدہ یا ضلع سے تلاش کریں',
+    'member_new_password'       => 'نیا پاس ورڈ (اختیاری)',
+    'member_password_hint_new'  => 'خالی چھوڑیں تو ڈیفالٹ پاس ورڈ (Welcome@123) سیٹ ہوگا',
+    'member_password_hint_edit' => 'خالی چھوڑیں تو موجودہ پاس ورڈ برقرار رہے گا',
+    'member_filter_status'      => 'حیثیت کے مطابق فلٹر کریں',
+    'member_photo_url_or_upload'=> 'تصویر اپ لوڈ کریں',
+    'msg_approved'   => 'ممبر منظور کر لیا گیا۔',
+    'msg_rejected'   => 'درخواست مسترد کر دی گئی۔',
+    'msg_saved'      => 'کامیابی سے محفوظ ہو گیا۔',
+    'msg_deleted'    => 'کامیابی سے حذف کر دیا گیا۔',
+
+    // ── Phase 2: Profile edit ────────────────────────────────────────────────
+    'profile_edit_heading'  => 'پروفائل میں ترمیم کریں',
+    'profile_edit_subtitle' => 'اپنی ذاتی معلومات اپ ڈیٹ کریں',
+    'profile_updated'       => 'آپ کی پروفائل کامیابی سے اپ ڈیٹ ہو گئی۔',
 ];
