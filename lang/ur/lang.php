@@ -322,6 +322,7 @@ return [
     'label_photo'                => 'تصویر',
     'label_upload'               => 'اپ لوڈ کریں',
     'label_or'                   => 'یا',
+    'label_note'                 => 'نوٹ',
     'committee_select_members'   => 'ممبران منتخب کریں',
     'committee_no_members'       => 'کوئی ممبر شامل نہیں',
 

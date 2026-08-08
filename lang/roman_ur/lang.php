@@ -298,6 +298,7 @@ return [
     'label_photo'                => 'Tasweer',
     'label_upload'               => 'Upload Karein',
     'label_or'                   => 'Ya',
+    'label_note'                 => 'Note',
     'committee_select_members'   => 'Membran Muntakhib Karein',
     'committee_no_members'       => 'Koi member shamil nahi',
 

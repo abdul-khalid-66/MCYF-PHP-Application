@@ -296,6 +296,7 @@ return [
     'label_photo'                => 'Photo',
     'label_upload'               => 'Upload',
     'label_or'                   => 'OR',
+    'label_note'                 => 'Note',
     'committee_select_members'   => 'Select Members',
     'committee_no_members'       => 'No members added',
 

@@ -45,7 +45,22 @@
 
     <section id="charter" class="card-forum p-4 mb-4">
       <h4 class="section-title"><i class="bi bi-file-earmark-text text-forum-gold me-1"></i><?= t('about_charter') ?></h4>
+      <?php if (!empty($charterPoints)): ?>
+      <ol class="charter-list ps-3 mb-0">
+        <?php foreach ($charterPoints as $point): ?>
+        <li class="mb-3">
+          <strong class="d-block text-forum-green"><?= e($point['title']) ?></strong>
+          <span><?= e($point['body']) ?></span>
+        </li>
+        <?php endforeach; ?>
+      </ol>
+      <?php if ($charterNote): ?>
+      <div class="geo-divider my-3"></div>
+      <p class="small text-muted mb-0"><strong><?= t('label_note') ?>:</strong> <?= e($charterNote) ?></p>
+      <?php endif; ?>
+      <?php else: ?>
       <p class="mb-0"><?= e($about['charter'] ?? '') ?></p>
+      <?php endif; ?>
     </section>
 
     <section id="constitution" class="card-forum p-4">
