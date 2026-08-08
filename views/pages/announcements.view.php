@@ -104,7 +104,7 @@ $jsLabels = json_encode([
     'editTitle' => t_raw('btn_edit') . ' — ' . t_raw('announcements_heading'),
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_ANN_LABELS = {$jsLabels};
 
@@ -131,6 +131,6 @@ function openAnnouncementModal(a) {
   }
 }
 </script>
-JS;
+JS);
 ?>
 <?php endif; ?>

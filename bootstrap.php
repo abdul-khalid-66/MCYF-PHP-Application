@@ -118,6 +118,26 @@ function safe_strimwidth(string $str, int $start, int $width, string $trimMarker
     return substr($str, $start, $width) . $trimMarker;
 }
 
+/**
+ * Extra-JS registry.
+ *
+ * Views are require()'d inside a closure in each public/*.php controller
+ * (the $content closure), so a plain `$extraJs = '...'` assignment inside
+ * a view file is local to that closure and never reaches views/layouts/main.php,
+ * which echoes it in the outer scope. Using a global registry instead sidesteps
+ * PHP's closure scoping entirely — call addExtraJs() from any view file and
+ * the layout will always find it via getExtraJs().
+ */
+function addExtraJs(string $js): void
+{
+    $GLOBALS['__extra_js'][] = $js;
+}
+
+function getExtraJs(): string
+{
+    return implode("\n", $GLOBALS['__extra_js'] ?? []);
+}
+
 /** Return flash message HTML if set, empty string otherwise */
 function flashHtml(string $key): string
 {

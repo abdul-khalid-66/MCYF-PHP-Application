@@ -249,7 +249,7 @@ $jsLabels = json_encode([
     'pwHintEdit'=> t_raw('member_password_hint_edit'),
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_MEMBER_LABELS = {$jsLabels};
 
@@ -302,4 +302,4 @@ function openMemberModal(member) {
   }
 }
 </script>
-JS;
+JS);

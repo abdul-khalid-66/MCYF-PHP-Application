@@ -109,7 +109,7 @@ $jsLabels = json_encode([
     'editTitle' => t_raw('btn_edit'),
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_ES_LABELS = {$jsLabels};
 
@@ -138,6 +138,6 @@ function openEmergencyModal(s) {
   }
 }
 </script>
-JS;
+JS);
 ?>
 <?php endif; ?>

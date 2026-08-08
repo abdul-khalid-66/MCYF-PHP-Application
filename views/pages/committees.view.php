@@ -120,7 +120,7 @@ $jsLabels = json_encode([
     'editTitle' => t_raw('btn_edit') . ' — ' . t_raw('committees_heading'),
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_COMMITTEE_LABELS = {$jsLabels};
 
@@ -153,6 +153,6 @@ function openCommitteeModal(c) {
   }
 }
 </script>
-JS;
+JS);
 ?>
 <?php endif; ?>

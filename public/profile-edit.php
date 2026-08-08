@@ -121,7 +121,7 @@ $content    = function () use ($user, $errors) { ?>
 </div>
 <?php };
 
-$extraJs = <<<'JS'
+addExtraJs(<<<'JS'
 <script>
 document.getElementById('photoInput')?.addEventListener('change', function (e) {
   const file = e.target.files[0];
@@ -131,6 +131,6 @@ document.getElementById('photoInput')?.addEventListener('change', function (e) {
   reader.readAsDataURL(file);
 });
 </script>
-JS;
+JS);
 
 require ROOT_PATH . '/views/layouts/main.php';

@@ -100,11 +100,11 @@
   </div>
 </div>
 
-<?php $extraJs = <<<'JS'
+<?php addExtraJs(<<<'JS'
 <script>
 function fillLogin(email) {
   document.querySelector('[name="email"]').value = email;
   document.querySelector('[name="password"]').focus();
 }
 </script>
-JS;
+JS);

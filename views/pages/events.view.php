@@ -126,7 +126,7 @@ $jsLabels = json_encode([
     'baseUrl'   => BASE_URL,
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_EVENT_LABELS = {$jsLabels};
 
@@ -171,6 +171,6 @@ function openEventModal(ev) {
   }
 }
 </script>
-JS;
+JS);
 ?>
 <?php endif; ?>

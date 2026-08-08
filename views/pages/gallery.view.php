@@ -225,7 +225,7 @@ $jsLabels = json_encode([
     'editImgTitle' => t_raw('btn_edit'),
 ], JSON_UNESCAPED_UNICODE);
 
-$extraJs = <<<JS
+addExtraJs(<<<JS
 <script>
 const MCYF_GAL_LABELS = {$jsLabels};
 
@@ -288,4 +288,4 @@ document.addEventListener('click', function (e) {
   }, { once: true });
 });
 </script>
-JS;
+JS);
