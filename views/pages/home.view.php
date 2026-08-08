@@ -111,8 +111,8 @@
     <h3 class="mb-2"><?= t('cta_heading') ?></h3>
     <p class="text-muted mb-3"><?= t('cta_body') ?></p>
     <div>
-      <a href="<?= BASE_URL ?>/auth/signup.php" class="btn btn-forum me-2"><?= t('cta_join') ?></a>
-      <a href="<?= BASE_URL ?>/contact.php" class="btn btn-outline-forum"><?= t('cta_contact') ?></a>
+      <a href="<?= BASE_URL ?>/auth/signup" class="btn btn-forum me-2"><?= t('cta_join') ?></a>
+      <a href="<?= BASE_URL ?>/contact" class="btn btn-outline-forum"><?= t('cta_contact') ?></a>
     </div>
   </div>
 </section>

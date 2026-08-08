@@ -9,7 +9,7 @@ $content    = function () { ?>
   <i class="bi bi-hourglass-split text-forum-gold" style="font-size:4rem;"></i>
   <h2 class="mt-3"><?= t('error_pending_heading') ?></h2>
   <p class="text-muted"><?= t('error_pending_msg') ?></p>
-  <a href="<?= BASE_URL ?>/auth/logout.php" class="btn btn-outline-forum mt-2">
+  <a href="<?= BASE_URL ?>/auth/logout" class="btn btn-outline-forum mt-2">
     <i class="bi bi-box-arrow-left me-1"></i><?= t('nav_logout') ?>
   </a>
 </div>

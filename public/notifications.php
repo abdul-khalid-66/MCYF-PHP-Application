@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         if ($action === 'toggle') {
             NotificationItem::toggleRead((int) post('id'));
-            redirect(BASE_URL . '/notifications.php');
+            redirect(BASE_URL . '/notifications');
 
         } elseif ($action === 'mark_all') {
             NotificationItem::markAllRead();
-            redirect(BASE_URL . '/notifications.php');
+            redirect(BASE_URL . '/notifications');
 
         } elseif ($action === 'save' && $canManage) {
             $data = [
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($success && empty($errors)) {
         sessionFlash('success', $success);
-        redirect(BASE_URL . '/notifications.php');
+        redirect(BASE_URL . '/notifications');
     }
 }
 

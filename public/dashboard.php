@@ -95,7 +95,7 @@ $content    = function () use (
         <span class="small text-muted"><i class="bi bi-calendar3 me-1"></i><?= formatDate($a['posted_at']) ?></span>
       </div>
       <?php endforeach; ?>
-      <a href="<?= BASE_URL ?>/announcements.php" class="btn btn-outline-forum btn-sm mt-2">
+      <a href="<?= BASE_URL ?>/announcements" class="btn btn-outline-forum btn-sm mt-2">
         <?= t('dashboard_view_all') ?>
       </a>
     </div>
@@ -118,7 +118,7 @@ $content    = function () use (
         <?php endforeach; ?>
       </div>
       <?php endif; ?>
-      <a href="<?= BASE_URL ?>/gallery.php" class="btn btn-outline-forum btn-sm mt-3">
+      <a href="<?= BASE_URL ?>/gallery" class="btn btn-outline-forum btn-sm mt-3">
         <?= t('dashboard_view_all') ?>
       </a>
     </div>
@@ -142,7 +142,7 @@ $content    = function () use (
         </li>
         <?php endforeach; ?>
       </ul>
-      <a href="<?= BASE_URL ?>/events.php" class="btn btn-outline-forum btn-sm mt-2">
+      <a href="<?= BASE_URL ?>/events" class="btn btn-outline-forum btn-sm mt-2">
         <?= t('dashboard_view_all') ?>
       </a>
     </div>
@@ -164,7 +164,7 @@ $content    = function () use (
         <p class="mb-0 small text-muted"><?= e(safe_strimwidth($n['message'], 0, 110, '…')) ?></p>
       </div>
       <?php endforeach; ?>
-      <a href="<?= BASE_URL ?>/notifications.php" class="btn btn-outline-forum btn-sm mt-2">
+      <a href="<?= BASE_URL ?>/notifications" class="btn btn-outline-forum btn-sm mt-2">
         <?= t('dashboard_view_all') ?>
       </a>
     </div>

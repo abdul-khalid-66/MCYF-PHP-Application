@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $canManage) {
 
     if ($success && empty($errors)) {
         sessionFlash('success', $success);
-        redirect(BASE_URL . '/emergency.php');
+        redirect(BASE_URL . '/emergency');
     }
 }
 

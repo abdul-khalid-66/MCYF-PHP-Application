@@ -5,7 +5,7 @@ $userId = requireAuth('profile');
 $user = Member::find($userId);
 if (!$user) {
     authLogout();
-    redirect(BASE_URL . '/auth/login.php');
+    redirect(BASE_URL . '/auth/login');
 }
 
 $pageTitle  = t_raw('profile_heading');
@@ -38,10 +38,10 @@ $content    = function () use ($user) { ?>
         <div class="col-md-6"><strong><?= t('member_status') ?>:</strong> <?= t('member_' . $user['status']) ?></div>
       </div>
       <div class="d-flex gap-2 mt-4">
-        <a href="<?= BASE_URL ?>/profile-edit.php" class="btn btn-forum">
+        <a href="<?= BASE_URL ?>/profile-edit" class="btn btn-forum">
           <i class="bi bi-pencil-square me-1"></i><?= t('profile_edit') ?>
         </a>
-        <a href="<?= BASE_URL ?>/auth/change-password.php" class="btn btn-outline-forum">
+        <a href="<?= BASE_URL ?>/auth/change-password" class="btn btn-outline-forum">
           <i class="bi bi-key me-1"></i><?= t('nav_change_password') ?>
         </a>
       </div>

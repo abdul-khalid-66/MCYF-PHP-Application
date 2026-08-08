@@ -69,14 +69,14 @@ $content    = function () use (
     <p class="lead mb-4"><?= e(appSubtitle()) ?></p>
     <div class="d-flex justify-content-center gap-2 flex-wrap">
       <?php if (isLoggedIn()): ?>
-        <a href="<?= BASE_URL ?>/dashboard.php" class="btn btn-gold btn-lg">
+        <a href="<?= BASE_URL ?>/dashboard" class="btn btn-gold btn-lg">
           <i class="bi bi-speedometer2 me-1"></i><?= t('hero_cta_dashboard') ?>
         </a>
       <?php else: ?>
-        <a href="<?= BASE_URL ?>/auth/signup.php" class="btn btn-gold btn-lg">
+        <a href="<?= BASE_URL ?>/auth/signup" class="btn btn-gold btn-lg">
           <i class="bi bi-person-plus me-1"></i><?= t('hero_cta_join') ?>
         </a>
-        <a href="<?= BASE_URL ?>/auth/login.php" class="btn btn-outline-light btn-lg">
+        <a href="<?= BASE_URL ?>/auth/login" class="btn btn-outline-light btn-lg">
           <?= t('hero_cta_login') ?>
         </a>
       <?php endif; ?>

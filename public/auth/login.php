@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         authLogin($user);
         $dest = $user['role'] === 'pending'
-            ? BASE_URL . '/pending.php'
-            : BASE_URL . '/dashboard.php';
+            ? BASE_URL . '/pending'
+            : BASE_URL . '/dashboard';
         redirect($dest);
     } else {
         $error = t_raw('auth_error_invalid');

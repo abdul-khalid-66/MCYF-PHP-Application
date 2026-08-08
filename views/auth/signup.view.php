@@ -42,6 +42,6 @@
   <?php endif; ?>
 
   <p class="text-center small text-muted mt-3 mb-0">
-    <?= t('auth_have_account') ?> <a href="<?= BASE_URL ?>/auth/login.php"><?= t('auth_login_link') ?></a>
+    <?= t('auth_have_account') ?> <a href="<?= BASE_URL ?>/auth/login"><?= t('auth_login_link') ?></a>
   </p>
 </div>

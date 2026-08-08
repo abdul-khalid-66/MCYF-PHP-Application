@@ -18,16 +18,23 @@ define('ROOT_PATH', __DIR__);                    // /path/to/mcyf-php
 
 /**
  * BASE_URL must always point to the /public folder itself — never to a
- * sub-folder like /public/auth or /public/admin. dirname(SCRIPT_NAME) broke
- * on every nested page (returned .../public/auth instead of .../public), so
- * instead we locate the "/public" segment in the current script path and
- * cut there. Works no matter how deep the page is nested.
+ * sub-folder like /public/auth or /public/admin.
+ *
+ * Two supported deployment styles:
+ *  1. DocumentRoot is a parent folder and the URL includes ".../public/..."
+ *     → find that "/public" segment and cut there.
+ *  2. DocumentRoot points directly AT the /public folder (recommended,
+ *     cleaner URLs) → there's no "/public" segment in SCRIPT_NAME at all,
+ *     so the base is simply the site root ('').
+ * dirname(SCRIPT_NAME) was used as a fallback previously, but that breaks
+ * on every nested page (e.g. /auth/login.php) in deployment style 2 —
+ * it returned ".../auth" instead of the true root.
  */
 $__scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
 $__publicPos  = strpos($__scriptName, '/public');
 $__basePath   = $__publicPos !== false
     ? substr($__scriptName, 0, $__publicPos + strlen('/public'))
-    : rtrim(dirname($__scriptName), '/\\'); // fallback
+    : ''; // DocumentRoot already IS /public — base is the site root
 
 define('BASE_URL', rtrim(
     (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http')

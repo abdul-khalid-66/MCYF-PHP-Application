@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $success = t_raw('settings_saved');
         // Reload so themeVars() reflects new colors on this page
-        redirect(BASE_URL . '/admin/settings.php?saved=1');
+        redirect(BASE_URL . '/admin/settings?saved=1');
     }
 }
 
@@ -209,7 +209,7 @@ $content    = function () use ($settings, $availableLangs, $success, $error) { ?
           <button type="submit" class="btn btn-forum">
             <i class="bi bi-floppy me-1"></i><?= t('settings_save') ?>
           </button>
-          <a href="<?= BASE_URL ?>/admin/index.php" class="btn btn-outline-secondary"><?= t('btn_back') ?></a>
+          <a href="<?= BASE_URL ?>/admin/index" class="btn btn-outline-secondary"><?= t('btn_back') ?></a>
         </div>
 
       </form>

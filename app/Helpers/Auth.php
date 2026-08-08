@@ -122,19 +122,19 @@ function hasPermission(string $key): bool
 function requireAuth(?string $permissionKey = null): int
 {
     if (!isLoggedIn()) {
-        header('Location: ' . BASE_URL . '/auth/login.php');
+        header('Location: ' . BASE_URL . '/auth/login');
         exit;
     }
 
     $role = authUserRole();
 
     if ($role === 'pending' && $permissionKey !== 'profile') {
-        header('Location: ' . BASE_URL . '/pending.php');
+        header('Location: ' . BASE_URL . '/pending');
         exit;
     }
 
     if ($permissionKey && !hasPermission($permissionKey)) {
-        header('Location: ' . BASE_URL . '/errors/access-denied.php');
+        header('Location: ' . BASE_URL . '/errors/access-denied');
         exit;
     }
 
@@ -147,7 +147,7 @@ function requireAuth(?string $permissionKey = null): int
 function redirectIfAuthenticated(): void
 {
     if (isLoggedIn()) {
-        header('Location: ' . BASE_URL . '/dashboard.php');
+        header('Location: ' . BASE_URL . '/dashboard');
         exit;
     }
 }

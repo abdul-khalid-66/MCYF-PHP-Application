@@ -31,11 +31,11 @@ $addresses = array_filter($contacts, fn($r) => $r['type'] === 'address');
       <div class="col-md-4">
         <h6 class="mb-2"><?= t('footer_quick_links') ?></h6>
         <ul class="list-unstyled small d-flex flex-column gap-1">
-          <li><a href="<?= BASE_URL ?>/index.php"><?= t('nav_home') ?></a></li>
-          <li><a href="<?= BASE_URL ?>/index.php#about"><?= t('nav_about_us') ?></a></li>
-          <li><a href="<?= BASE_URL ?>/contact.php"><?= t('nav_contact') ?></a></li>
+          <li><a href="<?= BASE_URL ?>/index"><?= t('nav_home') ?></a></li>
+          <li><a href="<?= BASE_URL ?>/index#about"><?= t('nav_about_us') ?></a></li>
+          <li><a href="<?= BASE_URL ?>/contact"><?= t('nav_contact') ?></a></li>
           <?php if (!isLoggedIn()): ?>
-          <li><a href="<?= BASE_URL ?>/auth/login.php"><?= t('nav_login') ?></a></li>
+          <li><a href="<?= BASE_URL ?>/auth/login"><?= t('nav_login') ?></a></li>
           <?php endif; ?>
         </ul>
       </div>

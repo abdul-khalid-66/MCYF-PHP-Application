@@ -42,17 +42,17 @@
               <input class="form-check-input" type="checkbox" id="remember" name="remember">
               <label class="form-check-label small" for="remember"><?= t('auth_remember_me') ?></label>
             </div>
-            <a href="<?= BASE_URL ?>/auth/forgot-password.php" class="small"><?= t('auth_forgot_password') ?></a>
+            <a href="<?= BASE_URL ?>/auth/forgot-password" class="small"><?= t('auth_forgot_password') ?></a>
           </div>
 
           <button type="submit" class="btn btn-forum w-100"><?= t('auth_login_btn') ?></button>
         </form>
 
         <p class="text-center small text-muted mt-3 mb-1">
-          <?= t('auth_no_account') ?> <a href="<?= BASE_URL ?>/auth/signup.php"><?= t('auth_register_link') ?></a>
+          <?= t('auth_no_account') ?> <a href="<?= BASE_URL ?>/auth/signup"><?= t('auth_register_link') ?></a>
         </p>
         <p class="text-center small mb-0">
-          <a href="<?= BASE_URL ?>/index.php"><i class="bi bi-arrow-right me-1"></i><?= t('nav_back_to_site') ?></a>
+          <a href="<?= BASE_URL ?>/index"><i class="bi bi-arrow-right me-1"></i><?= t('nav_back_to_site') ?></a>
         </p>
       </div>
     </div>

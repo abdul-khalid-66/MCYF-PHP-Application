@@ -5,7 +5,7 @@ $userId = requireAuth('profile');
 $user = Member::find($userId);
 if (!$user) {
     authLogout();
-    redirect(BASE_URL . '/auth/login.php');
+    redirect(BASE_URL . '/auth/login');
 }
 
 $errors  = [];
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             Member::update($userId, $data);
             sessionFlash('success', t_raw('profile_updated'));
-            redirect(BASE_URL . '/profile.php');
+            redirect(BASE_URL . '/profile');
         } catch (RuntimeException $ex) {
             $errors[] = $ex->getMessage();
         }
@@ -113,7 +113,7 @@ $content    = function () use ($user, $errors) { ?>
         </div>
         <div class="mt-3">
           <button type="submit" class="btn btn-forum"><i class="bi bi-check2 me-1"></i><?= t('profile_save') ?></button>
-          <a href="<?= BASE_URL ?>/profile.php" class="btn btn-outline-forum"><i class="bi bi-x-lg me-1"></i><?= t('btn_cancel') ?></a>
+          <a href="<?= BASE_URL ?>/profile" class="btn btn-outline-forum"><i class="bi bi-x-lg me-1"></i><?= t('btn_cancel') ?></a>
         </div>
       </form>
     </div>

@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && post('form_action') === 'contact_su
     } else {
         ContactMessage::create($name, $contact, $subject, $message);
         sessionFlash('success', t_raw('contact_sent'));
-        redirect(BASE_URL . '/contact.php');
+        redirect(BASE_URL . '/contact');
     }
 }
 

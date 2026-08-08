@@ -35,7 +35,7 @@ if ($user) {
   <div class="container">
 
     <!-- Brand -->
-    <a class="navbar-brand d-flex align-items-center gap-2" href="<?= BASE_URL ?>/<?= $user ? 'dashboard.php' : 'index.php' ?>">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="<?= BASE_URL ?>/<?= $user ? 'dashboard' : 'index' ?>">
       <?php if ($logoPath): ?>
         <img src="<?= e($logoPath) ?>" alt="<?= e($name) ?>" style="height:38px;width:auto;object-fit:contain;">
       <?php else: ?>
@@ -64,37 +64,37 @@ if ($user) {
 
         <?php if (hasPermission('dashboard')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('dashboard') ?>" href="<?= BASE_URL ?>/dashboard.php"><?= t('nav_dashboard') ?></a>
+          <a class="nav-link <?= $active('dashboard') ?>" href="<?= BASE_URL ?>/dashboard"><?= t('nav_dashboard') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('members')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('members') ?>" href="<?= BASE_URL ?>/members.php"><?= t('nav_members') ?></a>
+          <a class="nav-link <?= $active('members') ?>" href="<?= BASE_URL ?>/members"><?= t('nav_members') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('announcements')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('announcements') ?>" href="<?= BASE_URL ?>/announcements.php"><?= t('nav_announcements') ?></a>
+          <a class="nav-link <?= $active('announcements') ?>" href="<?= BASE_URL ?>/announcements"><?= t('nav_announcements') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('gallery')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('gallery') ?>" href="<?= BASE_URL ?>/gallery.php"><?= t('nav_gallery') ?></a>
+          <a class="nav-link <?= $active('gallery') ?>" href="<?= BASE_URL ?>/gallery"><?= t('nav_gallery') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('events')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('events') ?>" href="<?= BASE_URL ?>/events.php"><?= t('nav_events') ?></a>
+          <a class="nav-link <?= $active('events') ?>" href="<?= BASE_URL ?>/events"><?= t('nav_events') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('committees')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('committees') ?>" href="<?= BASE_URL ?>/committees.php"><?= t('nav_committees') ?></a>
+          <a class="nav-link <?= $active('committees') ?>" href="<?= BASE_URL ?>/committees"><?= t('nav_committees') ?></a>
         </li>
         <?php endif; ?>
 
@@ -104,25 +104,25 @@ if ($user) {
             <?= t('nav_about') ?>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#us"><?= t('nav_about_us') ?></a></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#vision"><?= t('nav_vision') ?></a></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#mission"><?= t('nav_mission') ?></a></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#objectives"><?= t('nav_objectives') ?></a></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#charter"><?= t('nav_charter') ?></a></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about.php#constitution"><?= t('nav_constitution') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#us"><?= t('nav_about_us') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#vision"><?= t('nav_vision') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#mission"><?= t('nav_mission') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#objectives"><?= t('nav_objectives') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#charter"><?= t('nav_charter') ?></a></li>
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/about#constitution"><?= t('nav_constitution') ?></a></li>
           </ul>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('emergency')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('emergency') ?>" href="<?= BASE_URL ?>/emergency.php"><?= t('nav_emergency') ?></a>
+          <a class="nav-link <?= $active('emergency') ?>" href="<?= BASE_URL ?>/emergency"><?= t('nav_emergency') ?></a>
         </li>
         <?php endif; ?>
 
         <?php if (hasPermission('contact')): ?>
         <li class="nav-item">
-          <a class="nav-link <?= $active('contact') ?>" href="<?= BASE_URL ?>/contact.php"><?= t('nav_contact') ?></a>
+          <a class="nav-link <?= $active('contact') ?>" href="<?= BASE_URL ?>/contact"><?= t('nav_contact') ?></a>
         </li>
         <?php endif; ?>
 
@@ -133,7 +133,7 @@ if ($user) {
 
         <?php if (hasPermission('notifications')): ?>
         <li class="nav-item">
-          <a class="nav-link position-relative <?= $active('notifications') ?>" href="<?= BASE_URL ?>/notifications.php">
+          <a class="nav-link position-relative <?= $active('notifications') ?>" href="<?= BASE_URL ?>/notifications">
             <i class="bi bi-bell"></i>
             <?php if ($unread > 0): ?>
             <span class="badge rounded-pill badge-notif position-absolute top-0 start-0 translate-middle">
@@ -157,27 +157,27 @@ if ($user) {
           <ul class="dropdown-menu dropdown-menu-end">
             <li class="px-3 py-2 small text-muted"><?= e($user['name']) ?></li>
             <li><hr class="dropdown-divider my-1"></li>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/profile.php">
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/profile">
               <i class="bi bi-person me-2"></i><?= t('nav_profile') ?>
             </a></li>
 
             <?php if (hasPermission('admin')): ?>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/admin/index.php">
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/admin/index">
               <i class="bi bi-speedometer2 me-2"></i><?= t('nav_admin_panel') ?>
             </a></li>
             <?php endif; ?>
 
             <?php if (hasPermission('user_management')): ?>
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/admin/users.php">
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/admin/users">
               <i class="bi bi-people-fill me-2"></i><?= t('nav_users_roles') ?>
             </a></li>
             <?php endif; ?>
 
-            <li><a class="dropdown-item" href="<?= BASE_URL ?>/auth/change-password.php">
+            <li><a class="dropdown-item" href="<?= BASE_URL ?>/auth/change-password">
               <i class="bi bi-key me-2"></i><?= t('nav_change_password') ?>
             </a></li>
             <li><hr class="dropdown-divider my-1"></li>
-            <li><a class="dropdown-item text-danger" href="<?= BASE_URL ?>/auth/logout.php">
+            <li><a class="dropdown-item text-danger" href="<?= BASE_URL ?>/auth/logout">
               <i class="bi bi-box-arrow-left me-2"></i><?= t('nav_logout') ?>
             </a></li>
           </ul>
@@ -187,14 +187,14 @@ if ($user) {
       <?php else: ?>
       <!-- ── Public nav ── -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 align-items-lg-center">
-        <li class="nav-item"><a class="nav-link <?= $active('home') ?>" href="<?= BASE_URL ?>/index.php"><?= t('nav_home') ?></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/index.php#about"><?= t('nav_about_us') ?></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/index.php#events"><?= t('nav_events') ?></a></li>
-        <li class="nav-item"><a class="nav-link <?= $active('contact') ?>" href="<?= BASE_URL ?>/contact.php"><?= t('nav_contact') ?></a></li>
+        <li class="nav-item"><a class="nav-link <?= $active('home') ?>" href="<?= BASE_URL ?>/index"><?= t('nav_home') ?></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/index#about"><?= t('nav_about_us') ?></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/index#events"><?= t('nav_events') ?></a></li>
+        <li class="nav-item"><a class="nav-link <?= $active('contact') ?>" href="<?= BASE_URL ?>/contact"><?= t('nav_contact') ?></a></li>
       </ul>
       <ul class="navbar-nav align-items-lg-center gap-2 ms-lg-3 mt-2 mt-lg-0">
-        <li class="nav-item"><a class="btn btn-outline-light btn-sm" href="<?= BASE_URL ?>/auth/login.php"><?= t('nav_login') ?></a></li>
-        <li class="nav-item"><a class="btn btn-gold btn-sm" href="<?= BASE_URL ?>/auth/signup.php"><?= t('nav_register') ?></a></li>
+        <li class="nav-item"><a class="btn btn-outline-light btn-sm" href="<?= BASE_URL ?>/auth/login"><?= t('nav_login') ?></a></li>
+        <li class="nav-item"><a class="btn btn-gold btn-sm" href="<?= BASE_URL ?>/auth/signup"><?= t('nav_register') ?></a></li>
       </ul>
       <?php endif; ?>
 

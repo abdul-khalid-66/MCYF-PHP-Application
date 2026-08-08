@@ -55,7 +55,7 @@ $content    = function () use ($success, $error) { ?>
           <input required type="password" name="confirm_password" class="form-control">
         </div>
         <button class="btn btn-forum"><?= t('auth_change_pw_btn') ?></button>
-        <a href="<?= BASE_URL ?>/profile.php" class="btn btn-outline-secondary ms-2"><?= t('btn_cancel') ?></a>
+        <a href="<?= BASE_URL ?>/profile" class="btn btn-outline-secondary ms-2"><?= t('btn_cancel') ?></a>
       </form>
     </div>
   </div>
