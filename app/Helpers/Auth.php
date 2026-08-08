@@ -80,9 +80,10 @@ function authUserRole(): string
     return $_SESSION['auth_user_role'] ?? 'visitor';
 }
 
-// ── Permission map (mirrors data.js ROLE_PERMISSIONS) ────────────────────────
-// Super admin bypasses everything.
-// You can expand or override these from the DB in Phase 2.
+// ── Permission map (default / fallback values — seeded into the
+//    `role_permissions` DB table so admins can edit them from Admin →
+//    Users & Roles. If the DB table is empty or unreachable, this array
+//    is used as-is.) Super admin always bypasses everything.
 
 const ROLE_PERMISSIONS = [
     'visitor'       => [],
@@ -101,16 +102,49 @@ const ROLE_PERMISSIONS = [
         'committees', 'notifications', 'emergency', 'about', 'contact', 'profile',
         'admin', 'user_management', 'members_manage', 'announcements_manage',
         'events_manage', 'committees_manage', 'emergency_manage',
-        'gallery_manage', 'roles_manage',
+        'gallery_manage', 'roles_manage', 'messages_manage',
     ],
     'super_admin'   => ['*'], // wildcard — see hasPermission()
 ];
+
+/** All permission keys that exist in the app (used to render the admin matrix). */
+const ALL_PERMISSION_KEYS = [
+    'dashboard', 'members', 'announcements', 'gallery', 'events', 'committees',
+    'notifications', 'emergency', 'about', 'contact', 'profile', 'admin',
+    'user_management', 'members_manage', 'announcements_manage', 'events_manage',
+    'committees_manage', 'emergency_manage', 'gallery_manage', 'roles_manage',
+    'messages_manage',
+];
+
+/** Editable roles shown in the admin permissions matrix (super_admin is always full-access). */
+const EDITABLE_ROLES = ['pending', 'member', 'committee_head', 'admin'];
+
+function _loadRolePermissions(): array
+{
+    static $cache = null;
+    if ($cache === null) {
+        try {
+            $rows = DB::connection()->query("SELECT role, permission FROM role_permissions")->fetchAll();
+            if (empty($rows)) {
+                $cache = ROLE_PERMISSIONS; // table not seeded yet — use defaults
+            } else {
+                $cache = [];
+                foreach ($rows as $r) {
+                    $cache[$r['role']][] = $r['permission'];
+                }
+            }
+        } catch (Throwable) {
+            $cache = ROLE_PERMISSIONS;
+        }
+    }
+    return $cache;
+}
 
 function hasPermission(string $key): bool
 {
     $role = authUserRole();
     if ($role === 'super_admin') return true;
-    $perms = ROLE_PERMISSIONS[$role] ?? [];
+    $perms = _loadRolePermissions()[$role] ?? [];
     return in_array($key, $perms, true);
 }
 

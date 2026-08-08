@@ -63,15 +63,16 @@ $content    = function () use ($stats) { ?>
   // (public pages with an inline admin-management section, e.g. members.php),
   // others (settings, future users.php) are admin-only and live under /admin/.
   $cards = [
-    ['members.php',        'bi-people',          t_raw('admin_members'),           'members_manage'],
-    ['announcements.php',  'bi-megaphone',       t_raw('admin_announcements'),     'announcements_manage'],
-    ['notifications.php',  'bi-bell',            t_raw('admin_notifications'),     'admin'],
-    ['events.php',         'bi-calendar-event',  t_raw('admin_events'),            'events_manage'],
-    ['committees.php',     'bi-diagram-3',       t_raw('admin_committees'),        'committees_manage'],
-    ['gallery.php',        'bi-images',          t_raw('admin_gallery'),           'gallery_manage'],
-    ['emergency.php',      'bi-heart-pulse',     t_raw('admin_emergency'),         'emergency_manage'],
-    ['admin/users.php',    'bi-people-fill',     t_raw('admin_users_roles'),       'user_management'],
-    ['admin/settings.php', 'bi-gear',            t_raw('admin_platform_settings'), 'admin'],
+    ['members',        'bi-people',          t_raw('admin_members'),           'members_manage'],
+    ['announcements',  'bi-megaphone',       t_raw('admin_announcements'),     'announcements_manage'],
+    ['notifications',  'bi-bell',            t_raw('admin_notifications'),     'admin'],
+    ['events',         'bi-calendar-event',  t_raw('admin_events'),            'events_manage'],
+    ['committees',     'bi-diagram-3',       t_raw('admin_committees'),        'committees_manage'],
+    ['gallery',        'bi-images',          t_raw('admin_gallery'),           'gallery_manage'],
+    ['emergency',      'bi-heart-pulse',     t_raw('admin_emergency'),         'emergency_manage'],
+    ['admin/users',    'bi-people-fill',     t_raw('admin_users_roles'),       'user_management'],
+    ['admin/messages', 'bi-envelope',        t_raw('admin_messages'),          'messages_manage'],
+    ['admin/settings', 'bi-gear',            t_raw('admin_platform_settings'), 'admin'],
   ];
   foreach ($cards as [$path, $icon, $label, $perm]):
     if (!hasPermission($perm)) continue;

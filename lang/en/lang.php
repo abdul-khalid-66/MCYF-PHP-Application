@@ -329,4 +329,16 @@ return [
 
     // ── Phase 4: About ────────────────────────────────────────────────────────
     'about_page_subtitle' => 'Our introduction, vision, mission, objectives, charter and constitution',
+
+    // ── Phase 5: Users & Roles, Messages Inbox ───────────────────────────────
+    'label_manage'         => 'Manage',
+    'admin_messages'       => 'Contact Messages',
+    'users_roles_heading'  => 'Users & Roles',
+    'users_roles_subtitle' => 'Change member roles and permissions here',
+    'permissions_matrix'   => 'Permissions Matrix',
+    'permissions_hint'     => 'Check or uncheck boxes next to each role to change its access.',
+    'change_role'          => 'Change Role',
+    'own_role_locked'      => 'You cannot change your own role',
+    'message_from'         => 'From',
+    'no_messages'          => 'No messages received',
 ];

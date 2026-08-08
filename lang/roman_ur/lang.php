@@ -331,4 +331,16 @@ return [
 
     // ── Phase 4: About ────────────────────────────────────────────────────────
     'about_page_subtitle' => 'Forum ka taaruf, wazion, mission, maqasid, charter aur aain',
+
+    // ── Phase 5: Users & Roles, Messages Inbox ───────────────────────────────
+    'label_manage'         => 'Intezam',
+    'admin_messages'       => 'Moosool Shuda Paighamat',
+    'users_roles_heading'  => 'Sarifeen aur Kirdar',
+    'users_roles_subtitle' => 'Membran ke kirdar aur ijazatein yahan se tabdeel karein',
+    'permissions_matrix'   => 'Ijazaton ka Nizam',
+    'permissions_hint'     => 'Har kirdar ke saamne mojood khanon ko nishan zad ya ghair nishan zad kar ke uski rasaai tabdeel karein.',
+    'change_role'          => 'Kirdar Tabdeel Karein',
+    'own_role_locked'      => 'Aap apna kirdar khud tabdeel nahi kar sakte',
+    'message_from'         => 'Bhejnay Wala',
+    'no_messages'          => 'Koi paigham moosool nahi huwa',
 ];

@@ -173,6 +173,17 @@ if ($user) {
             </a></li>
             <?php endif; ?>
 
+            <?php if (hasPermission('messages_manage')):
+                $unreadMsgCount = ContactMessage::unreadCount();
+            ?>
+            <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="<?= BASE_URL ?>/admin/messages">
+              <span><i class="bi bi-envelope me-2"></i><?= t('admin_messages') ?></span>
+              <?php if ($unreadMsgCount > 0): ?>
+              <span class="badge rounded-pill badge-notif"><?= $unreadMsgCount ?></span>
+              <?php endif; ?>
+            </a></li>
+            <?php endif; ?>
+
             <li><a class="dropdown-item" href="<?= BASE_URL ?>/auth/change-password">
               <i class="bi bi-key me-2"></i><?= t('nav_change_password') ?>
             </a></li>

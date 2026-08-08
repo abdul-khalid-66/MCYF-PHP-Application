@@ -58,6 +58,7 @@ require_once ROOT_PATH . '/app/Models/Committee.php';
 require_once ROOT_PATH . '/app/Models/Gallery.php';
 require_once ROOT_PATH . '/app/Models/EmergencyService.php';
 require_once ROOT_PATH . '/app/Models/ContactMessage.php';
+require_once ROOT_PATH . '/app/Models/RolePermission.php';
 
 // ── Utility functions ─────────────────────────────────────────────────────────
 
