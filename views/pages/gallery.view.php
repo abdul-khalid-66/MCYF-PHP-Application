@@ -10,7 +10,7 @@
   <select id="categoryFilter" class="form-select" style="max-width:240px;">
     <option value=""><?= t('gallery_all_categories') ?></option>
     <?php foreach ($categories as $cat): ?>
-    <option value="<?= e(mb_strtolower($cat)) ?>"><?= e($cat) ?></option>
+    <option value="<?= e(safe_strtolower($cat)) ?>"><?= e($cat) ?></option>
     <?php endforeach; ?>
   </select>
 
@@ -46,7 +46,7 @@
   <div class="tab-pane fade show active" id="tabImages">
     <div class="gallery-grid" id="imageGrid">
       <?php foreach ($images as $img): ?>
-      <div class="gallery-item-wrap" data-category="<?= e(mb_strtolower($img['category'])) ?>">
+      <div class="gallery-item-wrap" data-category="<?= e(safe_strtolower($img['category'])) ?>">
         <a href="<?= e($img['url']) ?>" class="gallery-link gallery-item d-block" data-caption="<?= e($img['caption']) ?>">
           <img src="<?= e($img['url']) ?>" alt="<?= e($img['caption']) ?>" loading="lazy">
           <span class="gallery-caption"><?= e($img['caption']) ?></span>
@@ -82,7 +82,7 @@
               ? 'https://img.youtube.com/vi/' . e($vid['youtube_id']) . '/hqdefault.jpg'
               : 'https://picsum.photos/seed/vid' . $vid['id'] . '/500/320';
       ?>
-      <div class="gallery-item-wrap" data-category="<?= e(mb_strtolower($vid['category'])) ?>">
+      <div class="gallery-item-wrap" data-category="<?= e(safe_strtolower($vid['category'])) ?>">
         <a href="#" class="video-link gallery-item d-block"
            data-type="<?= e($vid['type']) ?>"
            data-youtube="<?= e($vid['youtube_id']) ?>"

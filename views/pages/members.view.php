@@ -19,7 +19,7 @@
 <div class="row g-3" id="memberDirectory">
   <?php foreach ($directory as $m): ?>
   <div class="col-sm-6 col-lg-4 col-xl-3 member-directory-card"
-       data-search="<?= e(mb_strtolower($m['name'] . ' ' . $m['position'] . ' ' . $m['district'])) ?>">
+       data-search="<?= e(safe_strtolower($m['name'] . ' ' . $m['position'] . ' ' . $m['district'])) ?>">
     <div class="card-forum h-100 text-center p-3">
       <img src="<?= e(memberPhotoUrl($m['photo'])) ?>" class="member-avatar mx-auto mt-2" alt="<?= e($m['name']) ?>">
       <div class="card-body">

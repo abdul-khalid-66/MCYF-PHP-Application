@@ -43,7 +43,7 @@ function eventThumbUrl(?string $path, string $default): string {
         <p class="small text-muted mb-1"><i class="bi bi-geo-alt me-1"></i><?= e($ev['venue'] ?: '—') ?></p>
         <p class="small text-muted mb-2"><i class="bi bi-person-badge me-1"></i><?= e($ev['organizer'] ?: '—') ?></p>
         <?php if ($ev['description']): ?>
-        <p class="small mb-2"><?= e(mb_strimwidth($ev['description'], 0, 140, '…')) ?></p>
+        <p class="small mb-2"><?= e(safe_strimwidth($ev['description'], 0, 140, '…')) ?></p>
         <?php endif; ?>
 
         <?php if ($canManage): ?>

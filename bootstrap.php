@@ -90,6 +90,34 @@ function formatDate(?string $date, string $format = 'd M Y'): string
     }
 }
 
+/**
+ * Safe lowercase that works even if the mbstring extension is not enabled.
+ * Without mbstring, non-ASCII (e.g. Urdu) text is returned unchanged rather
+ * than crashing — comparisons still work since we lowercase both sides.
+ */
+function safe_strtolower(string $str): string
+{
+    if (function_exists('mb_strtolower')) {
+        return mb_strtolower($str, 'UTF-8');
+    }
+    return strtolower($str);
+}
+
+/**
+ * Safe string truncation that works even if the mbstring extension is not
+ * enabled. Falls back to byte-based substr(), which may very rarely cut a
+ * multibyte character at the boundary (cosmetic only) instead of crashing
+ * the whole page like the raw mb_strimwidth() call did.
+ */
+function safe_strimwidth(string $str, int $start, int $width, string $trimMarker = '…'): string
+{
+    if (function_exists('mb_strimwidth')) {
+        return mb_strimwidth($str, $start, $width, $trimMarker, 'UTF-8');
+    }
+    if (strlen($str) <= $width) return $str;
+    return substr($str, $start, $width) . $trimMarker;
+}
+
 /** Return flash message HTML if set, empty string otherwise */
 function flashHtml(string $key): string
 {

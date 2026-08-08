@@ -91,7 +91,7 @@ $content    = function () use (
           <strong class="small"><?= e($a['title']) ?></strong>
           <span class="badge <?= $priorityClass ?>"><?= t('priority_' . $a['priority']) ?></span>
         </div>
-        <p class="mb-1 small text-muted"><?= e(mb_strimwidth($a['description'], 0, 120, '…')) ?></p>
+        <p class="mb-1 small text-muted"><?= e(safe_strimwidth($a['description'], 0, 120, '…')) ?></p>
         <span class="small text-muted"><i class="bi bi-calendar3 me-1"></i><?= formatDate($a['posted_at']) ?></span>
       </div>
       <?php endforeach; ?>
@@ -161,7 +161,7 @@ $content    = function () use (
           <strong class="small"><?= e($n['title']) ?></strong>
           <span class="small text-muted"><?= formatDate($n['posted_at']) ?></span>
         </div>
-        <p class="mb-0 small text-muted"><?= e(mb_strimwidth($n['message'], 0, 110, '…')) ?></p>
+        <p class="mb-0 small text-muted"><?= e(safe_strimwidth($n['message'], 0, 110, '…')) ?></p>
       </div>
       <?php endforeach; ?>
       <a href="<?= BASE_URL ?>/notifications.php" class="btn btn-outline-forum btn-sm mt-2">
