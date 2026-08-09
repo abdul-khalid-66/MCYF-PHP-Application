@@ -72,10 +72,12 @@ $content    = function () use ($stats) { ?>
     ['emergency',      'bi-heart-pulse',     t_raw('admin_emergency'),         'emergency_manage'],
     ['admin/users',    'bi-people-fill',     t_raw('admin_users_roles'),       'user_management'],
     ['admin/messages', 'bi-envelope',        t_raw('admin_messages'),          'messages_manage'],
+    ['admin/backup',   'bi-shield-check',    'بیک اپ',                         'admin'],
     ['admin/settings', 'bi-gear',            t_raw('admin_platform_settings'), 'admin'],
   ];
   foreach ($cards as [$path, $icon, $label, $perm]):
     if (!hasPermission($perm)) continue;
+    if ($path === 'admin/backup' && authUserRole() !== 'super_admin') continue;
   ?>
   <div class="col-sm-6 col-lg-4">
     <a href="<?= BASE_URL ?>/<?= $path ?>" class="text-decoration-none">
